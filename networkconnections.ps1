@@ -2,7 +2,7 @@
 $connections = Get-NetTCPConnection -State Established
 
 # Create a file to store the output
-$outputFile = "C:\NetworkConnections.txt"
+$outputFile = "$env:USERPROFILE\Desktop\NetworkConnections.txt"
 "Network Connections:" | Out-File -FilePath $outputFile -Encoding utf8
 
 # Loop through the connections and extract the relevant information
@@ -23,4 +23,5 @@ foreach ($connection in $connections) {
   "  Process ID: $processId" | Out-File -FilePath $outputFile -Encoding utf8 -Append
   "  Process Name: $processName" | Out-File -FilePath $outputFile -Encoding utf8 -Append
   "" | Out-File -FilePath $outputFile -Encoding utf8 -Append
+
 }
